@@ -27,7 +27,7 @@ Legenda: **Evidenciado** = há código/teste/registro associado; **Parcial** = e
 
 | Exigência | Estado e referência |
 | --- | --- |
-| Hardware, esquemáticos, pinos e conectividade | **Parcial:** [documentação PITACO](https://github.com/PHV00/PITACO_ESP32/tree/main/docs) e [estudo Arduino Uno](../spo2-wrist-sensor-arduino/README.md); consolidar o esquema físico da montagem apresentada |
+| Hardware, esquemáticos, pinos e conectividade | **Parcial:** [documentação PITACO](https://github.com/PHV00/PITACO_ESP32/tree/main/docs) e [estudo Arduino Uno](../sqi-test-before-implementatiosn/spo2-wrist-sensor-arduino/README.md); consolidar o esquema físico da montagem apresentada |
 | Escolhas de protocolo justificadas | **Parcial:** USB/JSON, BLE conforme variante, HTTPS para nuvem; [interfaces](INTEGRACOES.md) descrevem usos; aprofundar trade-offs |
 | Testes de aplicação e processamento | **Evidenciado em partes:** testes backend, frontend e G1; [matriz de evidências](EVIDENCIAS.md) |
 | Testes de rotinas críticas do firmware | **Parcial:** G1 e host compilação/testes, mas falta ciclo físico reproduzível e ensaio de falha completo da configuração final |

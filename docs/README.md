@@ -13,7 +13,7 @@
 | Avaliador IoT | [Portal](../README.md) → [Arquitetura](ARQUITETURA.md) → [Conformidade](CONFORMIDADE_IOT.md) → [Evidências](EVIDENCIAS.md) |
 | Desenvolvedor de integração | [Arquitetura](ARQUITETURA.md) → [Contratos](INTEGRACOES.md) → [Execução](EXECUCAO.md) → repositório especializado |
 | Avaliador de contribuição/autoria | [Contribuições](CONTRIBUICOES.md) → [Evidências](EVIDENCIAS.md) → PRs/commits originais |
-| Pesquisador SQI | [Projeto SQI](../spo2-wrist-sensor/ReadME.md) → [Status G1](../spo2-wrist-sensor/docs/IMPLEMENTATION_STATUS.md) → [Gates futuros](../spo2-wrist-sensor/docs/sqi/PENDING_GATES_G2_G4.md) |
+| Pesquisador SQI | [Projeto SQI](../sqi-test-before-implementatiosn/spo2-wrist-sensor/ReadME.md) → [Status G1](../sqi-test-before-implementatiosn/spo2-wrist-sensor/docs/IMPLEMENTATION_STATUS.md) → [Gates futuros](../sqi-test-before-implementatiosn/spo2-wrist-sensor/docs/sqi/PENDING_GATES_G2_G4.md) |
 | Usuário da demonstração | [Execução](EXECUCAO.md) → [Limitações](LIMITACOES.md) |
 
 ## Documentos centrais
@@ -32,8 +32,8 @@
 | Área | Fonte de verdade técnica |
 | --- | --- |
 | Firmware PITACO (código, pinagem, thresholds, USB/BLE, G1) | [PITACO_ESP32 / docs](https://github.com/PHV00/PITACO_ESP32/tree/main/docs) — acesso condicionado à visibilidade do repo |
-| Prova de conceito ESP32 e projeto SQI hierárquico | [spo2-wrist-sensor / docs](../spo2-wrist-sensor/docs) |
-| Arduino Uno MAX30102 (estudo) | [spo2-wrist-sensor-arduino](../spo2-wrist-sensor-arduino) |
+| [Arquivo experimental de SQI e suas versões](../sqi-test-before-implementatiosn/README.md) | [spo2-wrist-sensor / docs](../sqi-test-before-implementatiosn/spo2-wrist-sensor/docs) |
+| Arduino Uno MAX30102 (estudo arquivado) | [spo2-wrist-sensor-arduino](../sqi-test-before-implementatiosn/spo2-wrist-sensor-arduino) |
 | Unity, HUD, Mixer/DeepDDA e testes | [Unity / docs](https://github.com/PHV00/iblueit-psychophysiological-flow-pitaco2.4-port/tree/main/docs) |
 | Azure Functions/API | [Backend / docs](https://github.com/PHV00/iblueit-server-side/tree/main/docs) |
 | React e gráficos | [Frontend / docs](https://github.com/PHV00/iblueit-health-Infocharts/tree/main/docs) |

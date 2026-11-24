@@ -26,6 +26,10 @@ O [I Blue It](https://github.com/UDESC-LARVA/iblueit-psychophysiological-flow) �
 
 A melhoria integra vários repositórios independentes; **este repositório é a porta de entrada**, não uma cópia de todo o código do sistema.
 
+### Arquivo de protótipos e pesquisa SQI
+
+Os estudos de firmware anteriores à integração estão preservados em **[`sqi-test-before-implementatiosn/`](sqi-test-before-implementatiosn/README.md)**: a prova de conceito ESP32/MAX3010x, o estudo Arduino Uno/MAX30102 e o registro de versões históricas do SQI. **Esse código é experimental e não é o firmware canônico atual**; a implementação do PITACO integrada ao sistema está documentada no repositório específico [PITACO_ESP32](https://github.com/PHV00/PITACO_ESP32).
+
 ## 2. Sistema em uma visão
 
 ~~~mermaid
@@ -56,7 +60,7 @@ flowchart TD
 
 | Componente | Repositório | Referência técnica |
 | --- | --- | --- |
-| Portal, RFC e estudos SQI | [RFC-MelhoriaProjetoIBlueIt](https://github.com/PHV00/RFC-MelhoriaProjetoIBlueIt) | [SQI / implementação](spo2-wrist-sensor/docs/IMPLEMENTATION_STATUS.md) |
+| Portal técnico, RFC e pesquisa | [RFC-IBlueIt-Pitaco3.0-Multimodal](https://github.com/PHV00/RFC-IBlueIt-Pitaco3.0-Multimodal) | [Arquivo histórico de testes SQI](sqi-test-before-implementatiosn/README.md) |
 | Firmware PITACO 2.4 e bridge Python | [PITACO_ESP32](https://github.com/PHV00/PITACO_ESP32) | [Arquitetura do firmware](https://github.com/PHV00/PITACO_ESP32/blob/main/docs/ARCHITECTURE.md) |
 | Jogo e processamento Unity | [iblueit-psychophysiological-flow-pitaco2.4-port](https://github.com/PHV00/iblueit-psychophysiological-flow-pitaco2.4-port) | [Consolidação PPG / HUD / DeepDDA](https://github.com/PHV00/iblueit-psychophysiological-flow-pitaco2.4-port/blob/main/docs/marcos/CONSOLIDACAO_PITACO24_UNITY_PPG_DEEPDDA_HUD_2026-11-22.md) |
 | API e persistência | [iblueit-server-side](https://github.com/PHV00/iblueit-server-side) | [Marco 04 backend](https://github.com/PHV00/iblueit-server-side/blob/main/docs/MARCO_04_ENCERRAMENTO.md) |
@@ -83,7 +87,7 @@ Leia as [limitações](docs/LIMITACOES.md) e a [matriz IoT](docs/CONFORMIDADE_IO
 
 ## 7. Desenvolvimento, autoria e fundamentação
 
-O I Blue It e seus componentes preexistentes são fruto das pesquisas e implementações do [UDESC-LARVA](https://github.com/UDESC-LARVA). Este portfólio documenta **uma extensão técnica e experimental** sobre aquela base. A delimitação está em [CONTRIBUICOES.md](docs/CONTRIBUICOES.md); a fundamentação científica e os requisitos inicialmente propostos podem ser consultados na [RFC original preservada](docs/rfc/RFC_v1.5_original.md) e nas [referências SQI](spo2-wrist-sensor/docs/REFERENCES.md).
+O I Blue It e seus componentes preexistentes são fruto das pesquisas e implementações do [UDESC-LARVA](https://github.com/UDESC-LARVA). Este portfólio documenta **uma extensão técnica e experimental** sobre aquela base. A delimitação está em [CONTRIBUICOES.md](docs/CONTRIBUICOES.md); a fundamentação científica e os requisitos inicialmente propostos podem ser consultados na [RFC original preservada](docs/rfc/RFC_v1.5_original.md) e nas [referências SQI](sqi-test-before-implementatiosn/spo2-wrist-sensor/docs/REFERENCES.md).
 
 **Governança documental:** arquitetura integrada e decisões entre repositórios são descritas aqui; configurações, algoritmos, testes e pipelines de cada componente têm sua fonte de verdade no respectivo repositório. A documentação tem data de corte e deve ser atualizada quando novas mudanças forem integradas.
 
