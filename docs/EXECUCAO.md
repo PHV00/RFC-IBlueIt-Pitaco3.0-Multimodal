@@ -46,8 +46,8 @@ Fonte: [Unity / README](https://github.com/PHV00/iblueit-psychophysiological-flo
 
 **Procedimento mínimo a preparar com o operador:**
 1. Instalar a versão de Unity compatível com o projeto (consultar repositório Unity).
-2. Confirmar qual caminho recebe o PITACO: leitura direta USB/serial ou bridge Python da variante.
-3. Identificar COM, versão efetiva do firmware e dispositivos conectados; não disputar a mesma porta entre processos.
+2. Conectar a Unity **diretamente** à porta USB/serial do PITACO; o middleware Python **não precisa ser executado** para usar o jogo.
+3. Identificar COM, versão efetiva do firmware e dispositivos conectados; caso o utilitário Python esteja aberto, fechar sua conexão serial antes de iniciar a Unity na mesma COM.
 4. Executar a cena de teste e observar contato/G1, janela PPG, BPM, SpO₂ DEMO e HUD.
 5. Encerrar aquisição e confirmar limpeza/expiração dos valores.
 6. Quando exercitar as regras experimentais de Mixer, usar somente ambiente Editor/Development e registrar que **não é validação de segurança clínica**.

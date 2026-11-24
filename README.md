@@ -32,16 +32,19 @@ Os estudos de firmware anteriores à integração estão preservados em **[`sqi-
 
 ## 2. Sistema em uma visão
 
-~~~mermaid
+```mermaid
 flowchart TD
-  S["Sensores: MPX5010DP (respiração) + MAX30105 (PPG RED/IR)"] --> F["PITACO 2.4 · ESP32-C3<br/>aquisição + contato + G1/SQI"]
-  F -->|"USB / mensagens e amostras; BLE conforme fluxo"| U["Unity · I Blue It 5.0<br/>jogo, janela PPG, BPM, SpO₂ DEMO, HUD, Mixer"]
-  U -->|"Internet · HTTPS / POST"| A["Azure Functions · API"]
-  A <-->|"leitura/gravação"| DB[("MongoDB Atlas")]
-  W["Health InfoCharts · React<br/>resultados e comparativos"] -->|"Internet · HTTPS / GET"| A
-~~~
+    S["Sensores MPX5010DP e MAX30105"] --> F["PITACO 2.4 - ESP32-C3 e G1"]
+    F -->|USB serial direto| U["Unity - I Blue It 5.0 - PPG e HUD"]
+    U -->|HTTPS POST| A["Azure Functions - API"]
+    A --> DB[(MongoDB Atlas)]
+    DB --> A
+    W["Health InfoCharts - React"] -->|HTTPS GET| A
+```
 
 **Observação de versões:** o firmware canônico documentado em PITACO_ESP32 usa **ESP32-C3 + MAX30105**. O repositório de estudos inclui **Arduino Uno + MAX30102**; documentos da integração posterior usam o rótulo **PITACO 3.0**. São linhas/configurações a distinguir, não sinônimos automaticamente comprovados. Ver [arquitetura](docs/ARQUITETURA.md#variantes-e-identificadores).
+
+**Conexão do jogo:** a Unity abre **diretamente** a porta USB/serial do firmware PITACO. O Python/bridge é uma ferramenta **separada e opcional**, utilizada para monitoramento, captura e diagnóstico em bancada; não é requisito para executar o jogo. Consulte [arquitetura](docs/ARQUITETURA.md) e [integrações](docs/INTEGRACOES.md).
 
 ## 3. Quais melhorias existem hoje?
 
@@ -61,7 +64,7 @@ flowchart TD
 | Componente | Repositório | Referência técnica |
 | --- | --- | --- |
 | Portal técnico, RFC e pesquisa | [RFC-IBlueIt-Pitaco3.0-Multimodal](https://github.com/PHV00/RFC-IBlueIt-Pitaco3.0-Multimodal) | [Arquivo histórico de testes SQI](sqi-test-before-implementatiosn/README.md) |
-| Firmware PITACO 2.4 e bridge Python | [PITACO_ESP32](https://github.com/PHV00/PITACO_ESP32) | [Arquitetura do firmware](https://github.com/PHV00/PITACO_ESP32/blob/main/docs/ARCHITECTURE.md) |
+| Firmware PITACO 2.4 e utilitario Python auxiliar | [PITACO_ESP32](https://github.com/PHV00/PITACO_ESP32) | [Arquitetura do firmware](https://github.com/PHV00/PITACO_ESP32/blob/main/docs/ARCHITECTURE.md) |
 | Jogo e processamento Unity | [iblueit-psychophysiological-flow-pitaco2.4-port](https://github.com/PHV00/iblueit-psychophysiological-flow-pitaco2.4-port) | [Consolidação PPG / HUD / DeepDDA](https://github.com/PHV00/iblueit-psychophysiological-flow-pitaco2.4-port/blob/main/docs/marcos/CONSOLIDACAO_PITACO24_UNITY_PPG_DEEPDDA_HUD_2026-11-22.md) |
 | API e persistência | [iblueit-server-side](https://github.com/PHV00/iblueit-server-side) | [Marco 04 backend](https://github.com/PHV00/iblueit-server-side/blob/main/docs/MARCO_04_ENCERRAMENTO.md) |
 | Aplicação web | [iblueit-health-Infocharts](https://github.com/PHV00/iblueit-health-Infocharts) | [Marco 04 frontend](https://github.com/PHV00/iblueit-health-Infocharts/blob/main/docs/MARCO_04_ENCERRAMENTO.md) |

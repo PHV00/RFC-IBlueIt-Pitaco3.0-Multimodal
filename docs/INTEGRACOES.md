@@ -6,24 +6,25 @@
 
 ## 1. Ciclo dos dados
 
-~~~mermaid
+```mermaid
 sequenceDiagram
     participant S as Sensores
-    participant F as PITACO / Firmware
-    participant U as Unity / I Blue It
+    participant F as Firmware PITACO
+    participant U as Unity I Blue It
     participant A as Azure Functions
     participant M as MongoDB Atlas
     participant W as Health InfoCharts
-    S->>F: pressão/fluxo e PPG RED/IR
-    F->>U: USB/telemetria, contato, G1, seq, tempo
-    U->>U: janela, BPM e SpO₂ DEMO; indicadores
-    U->>A: POST sessão / séries por HTTPS
-    A->>M: validação, idempotência e gravação
-    W->>A: GET histórico, sessão e resumo
-    A->>M: consulta de dados registrados
-    A-->>W: séries e metadados
-    W->>W: filtros, gráficos e comparativos
-~~~
+    S->>F: Fluxo respiratorio e PPG RED IR
+    F->>U: USB serial direto - amostras contato G1 tempo
+    U->>U: Processamento local BPM e SpO2 DEMO
+    U->>A: HTTPS POST - sessao e series
+    A->>M: Validacao e gravacao idempotente
+    W->>A: HTTPS GET - historico e dados
+    A->>M: Consulta
+    M-->>A: Documentos
+    A-->>W: Dados e metadados
+    W->>W: Graficos e comparativos
+```
 
 Este desenho representa o caminho de integração; não implica que toda execução da Unity já esteja consolidada na branch principal. Conferir [PR Unity #14](https://github.com/PHV00/iblueit-psychophysiological-flow-pitaco2.4-port/pull/14) ao reproduzir.
 
@@ -36,7 +37,7 @@ Este desenho representa o caminho de integração; não implica que toda execuç
 
 ## 3. Interface firmware → Unity
 
-**Transporte principal documentado na integração:** serial USB com amostras JSON PPG e eventos G1; comandos e fluxo respiratório legado preservados. O repositório PITACO contém também bridge USB/BLE Python; a necessidade de usá-la depende do caminho de execução.
+**Transporte principal da Unity:** **conexão direta USB/serial com o firmware PITACO**, recebendo amostras JSON PPG e eventos G1. Comandos e fluxo respiratório legado permanecem. **O jogo não depende do middleware Python.** O monitor/bridge Python (USB/BLE) no repositório PITACO é um utilitário separado de testes, GUI, aquisição e diagnóstico; ele não retransmite obrigatoriamente as amostras à Unity. Ao usar a mesma COM, Unity e Python não devem acessá-la ao mesmo tempo.
 
 **Campos conceituais relevantes:** amostras RED/IR, sequência, tempo do dispositivo, presença/contato, status G1, motivo de rejeição, sinais respiratórios. Este documento **não define um payload novo**; consultar a implementação do firmware e o parsing Unity para esquema exato e tipos.
 
